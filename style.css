@@ -61,7 +61,7 @@ nav {
     background-color: #ff4b8a;
     border: 1px solid #ff4b8a;
     border-radius: 0.3rem;
-    transition: all 0s;
+    transition: transform 0.3s;
 }
 .click-container:hover {
     transform: scale(1.05);
@@ -90,4 +90,48 @@ footer a {
 
 .nav-link:hover {
     color: #3498db; 
+}
+.setting-container {
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    width: 80%;
+    height: 80%;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 1.5rem;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ddd;
+}
+
+.setting-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: #ff4b8a;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.setting-close:hover {
+    background-color: #e03e6f;
+}
+
+.setBtn {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.setBtn:hover {
+    transform: scale(1.05);
 }
