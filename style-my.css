@@ -41,32 +41,6 @@ nav {
     margin-right: 1rem;
 }
 
-.content {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.click-container p {
-    font-size: 1.5rem;
-    text-align: center;
-    margin-top: 12rem;
-}
-
-.click-container {
-    width: 50rem;
-    height: 30rem;
-    color: #ffffff;
-    background-color: #ff4b8a;
-    border: 1px solid #ff4b8a;
-    border-radius: 0.3rem;
-    transition: all 0s;
-}
-.click-container:hover {
-    transform: scale(1.05);
-}
-
 footer{
     text-align: center;
     padding: 1rem;
