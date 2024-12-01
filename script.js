@@ -5,6 +5,7 @@ let isClickable = false;
 let startTime = null;
 let timeoutId = null;
 let autoNext = localStorage.getItem("clickToNext") === "true";
+let click2Up = localStorage.getItem("click2Up") === "true";
 
 const mainFrame = document.getElementById("clickContainer");
 const mainFrameText = document.getElementById("clickContainerText");
@@ -12,12 +13,16 @@ const settingsBtn = document.getElementById("settingsBtn");
 const settingContainer = document.getElementById("settingContainer");
 const settingCloseBtn = document.getElementById("settingCloseBtn");
 
-let waitingForNextClick = false; 
+let waitingForNextClick = false;
 
 function startGame() {
     if (playing) return;
     resetGame();
     playing = true;
+    if (click2Up) {
+        mainFrame.style.width = "100%";
+        mainFrame.style.height = "80%";
+    }
     mainFrameText.textContent = "게임 준비 중... 기다리세요!";
     mainFrame.style.backgroundColor = "red";
     timeoutId = setTimeout(nextTest, 1500);
@@ -46,7 +51,7 @@ function handleClick() {
     if (!playing) return;
 
     if (waitingForNextClick) {
-        waitingForNextClick = false; 
+        waitingForNextClick = false;
         mainFrameText.textContent = "기다리세요...";
         nextTest();
         return;
@@ -108,6 +113,7 @@ settingsBtn.addEventListener("click", () => {
 settingCloseBtn.addEventListener("click", () => {
     settingContainer.style.display = "none";
 });
+
 document.getElementById("click2Next").addEventListener("click", () => {
     autoNext = !autoNext;
     localStorage.setItem("clickToNext", autoNext ? "true" : "false");
@@ -118,10 +124,26 @@ document.getElementById("click2Next").addEventListener("click", () => {
         document.getElementById("click2Next").style.backgroundColor = "red";
         document.getElementById("click2Next").textContent = "꺼짐";
     }
-}
-);
+});
+
+document.getElementById("click2Bigger").addEventListener("click", () => {
+    click2Up = !click2Up;
+    localStorage.setItem("click2Up", click2Up ? "true" : "false");
+    if (click2Up) {
+        document.getElementById("click2Bigger").style.backgroundColor = "green";
+        document.getElementById("click2Bigger").textContent = "켜짐";
+    } else {
+        document.getElementById("click2Bigger").style.backgroundColor = "red";
+        document.getElementById("click2Bigger").textContent = "꺼짐";
+    }
+});
 
 if (autoNext) {
     document.getElementById("click2Next").style.backgroundColor = "green";
     document.getElementById("click2Next").textContent = "켜짐";
+}
+
+if (click2Up) {
+    document.getElementById("click2Bigger").style.backgroundColor = "green";
+    document.getElementById("click2Bigger").textContent = "켜짐";
 }
