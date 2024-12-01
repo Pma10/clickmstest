@@ -22,6 +22,9 @@ function startGame() {
     if (click2Up) {
         mainFrame.style.width = "100%";
         mainFrame.style.height = "80%";
+    } else {
+        mainFrame.style.width = "75%";
+        mainFrame.style.height = "75%";
     }
     mainFrameText.textContent = "게임 준비 중... 기다리세요!";
     mainFrame.style.backgroundColor = "red";
