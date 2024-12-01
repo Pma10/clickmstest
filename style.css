@@ -4,6 +4,8 @@ html {
     font-family: "Pretendard", sans-serif;
     margin: 0;
     height: 100%;
+    outline: none;
+    user-select: none;
 }
 
 body {
@@ -29,16 +31,36 @@ nav {
     padding: 0;
 }
 
-.nav-ul li {
-    cursor: pointer;
-    margin-right: 2rem;
-}
+
 
 .nav-ul-title {
     font-weight: 900;
     color: #ff4b8a;
     font-size: 1.5rem;
     margin-right: 1rem;
+}
+
+.nav-ul li a {
+    cursor: pointer;
+    margin-left: 1rem;
+    font-size: 1.1rem;
+    padding: 0 auto;
+    position: relative;
+}
+
+.nav-ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #ff4b8a;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-ul li a:hover::after {
+    width: 100%;
 }
 
 .content {
@@ -51,18 +73,19 @@ nav {
 .click-container p {
     font-size: 1.5rem;
     text-align: center;
-    margin-top: 12rem;
+    margin-top: 15%;
 }
 
 .click-container {
-    width: 50rem;
-    height: 30rem;
+    width: 75%;
+    height: 75%;
     color: #ffffff;
     background-color: #ff4b8a;
     border: 1px solid #ff4b8a;
     border-radius: 0.3rem;
-    transition: transform 0.3s;
+    transition: width 0.3s, height 0.3s, transform 0.3s;
 }
+
 .click-container:hover {
     transform: scale(1.05);
 }
@@ -88,9 +111,6 @@ footer a {
     cursor: pointer;
 }
 
-.nav-link:hover {
-    color: #3498db; 
-}
 .setting-container {
     position: fixed;
     display: none;
@@ -129,8 +149,12 @@ footer a {
     border: none;
     border-radius: 0.3rem;
     padding: 0.5rem 1rem;
+    margin: 0 auto;
     cursor: pointer;
     transition: all 0.3s;
+}
+.setBtnText{
+    margin: 0 auto;
 }
 .setBtn:hover {
     transform: scale(1.05);
